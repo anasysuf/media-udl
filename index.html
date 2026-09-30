@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E-book interaktif: Panduan Kilat Desain Media Pembelajaran Inklusif untuk guru pendidikan khusus. Dilengkapi narasi audio dan fitur aksesibilitas.">
+<title>Panduan Kilat: Desain Media Pembelajaran Inklusif</title>
+<style>
+  :root{
+    --bg:#F0F0F0; --ink:#121212; --muted:#555;
+    --red:#D02020; --yellow:#F0C020; --blue:#1040C0; --green:#1a8a3c;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html{font-size:100%;scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.6;min-height:100vh;display:flex;flex-direction:column;
+  }
+  /* ---------- high contrast mode ---------- */
+  body.hc{--bg:#000;--ink:#fff;--muted:#e8e8e8;--card:#0a0a0a;--yellow:#ffd800;--blue:#7aa2ff;--red:#ff6b6b;--green:#4ade80}
+  body.hc .card,body.hc .toolbar,body.hc header.top,body.hc footer.nav{border-color:#fff}
+  body.hc .btn{border-color:#fff}
+  body.hc .opt{border-color:#fff}
+  /* ---------- layout ---------- */
+  .skip{position:absolute;left:-9999px;top:0;background:var(--yellow);color:#000;padding:.6rem 1rem;font-weight:700;z-index:99}
+  .skip:focus{left:0}
+  header.top{background:var(--card);border-bottom:3px solid var(--ink);padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
+  header.top .brand{font-weight:800;font-size:1.05rem}
+  header.top .brand small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+  .toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .btn{
+    font:inherit;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink);
+    border:2px solid var(--ink);padding:.45rem .9rem;box-shadow:3px 3px 0 var(--ink);
+  }
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .btn:focus-visible,.dot:focus-visible,.opt input:focus-visible + span{outline:3px solid var(--blue);outline-offset:2px}
+  .btn.primary{background:var(--yellow)}
+  .btn.blue{background:var(--blue);color:#fff}
+  .btn[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  main{flex:1;display:flex;justify-content:center;padding:1.2rem 1rem 0.5rem}
+  .book{width:100%;max-width:860px}
+  .page{display:none;background:var(--card);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:1.6rem;min-height:60vh}
+  .page.active{display:block}
+  .kicker{display:inline-block;background:var(--ink);color:var(--bg);font-weight:800;font-size:.8rem;letter-spacing:.08em;padding:.25rem .7rem;margin-bottom:.8rem}
+  .kicker.red{background:var(--red);color:#fff}
+  .kicker.blue{background:var(--blue);color:#fff}
+  .kicker.yellow{background:var(--yellow);color:#000}
+  h1{font-size:2rem;line-height:1.15;margin:.2rem 0 .8rem}
+  h2{font-size:1.5rem;margin:.2rem 0 .8rem;line-height:1.25}
+  p{margin:.6rem 0}
+  .lead{font-size:1.12rem;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1rem}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-top:1rem}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:1rem}
+  .card h3{margin:.1rem 0 .5rem;font-size:1.1rem}
+  .card ul{margin:.4rem 0;padding-left:1.1rem}
+  .card li{margin:.3rem 0}
+  .do{border-top:6px solid var(--green)}
+  .dont{border-top:6px solid var(--red)}
+  .do h3{color:var(--green)} .dont h3{color:var(--red)}
+  .quote{background:var(--yellow);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:1rem;font-weight:700;font-size:1.1rem;margin-top:1rem;color:#000}
+  body.hc .quote{color:#000}
+  ol.steps{padding-left:1.3rem} ol.steps li{margin:.5rem 0}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .chip{border:2px solid var(--ink);background:var(--bg);padding:.35rem .8rem;font-size:.9rem;font-weight:600}
+  /* quiz */
+  .q{border:2px solid var(--ink);padding:1rem;margin:1rem 0;background:var(--bg)}
+  .q p{font-weight:700;margin-top:0}
+  .opt{display:flex;gap:.6rem;align-items:flex-start;border:2px solid var(--ink);background:var(--card);padding:.6rem .8rem;margin:.45rem 0;cursor:pointer}
+  .opt input{margin-top:.3rem;transform:scale(1.2)}
+  .opt.correct{border-color:var(--green);box-shadow:3px 3px 0 var(--green)}
+  .opt.wrong{border-color:var(--red);box-shadow:3px 3px 0 var(--red)}
+  .opt.disabled{cursor:default}
+  .q .fb{font-weight:700;margin:.4rem 0 0}
+  .q .fb.ok{color:var(--green)} .q .fb.no{color:var(--red)}
+  #score{font-size:1.15rem;font-weight:800;margin-top:1rem}
+  /* checklist */
+  .check{display:flex;gap:.7rem;align-items:flex-start;border:2px solid var(--ink);background:var(--bg);padding:.55rem .8rem;margin:.4rem 0;cursor:pointer}
+  .check input{transform:scale(1.35);margin-top:.3rem}
+  .check.done{background:var(--yellow)}
+  body.hc .check.done{background:#3a2f00}
+  /* footer nav */
+  footer.nav{background:var(--card);border-top:3px solid var(--ink);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+  .dots{display:flex;gap:.4rem;flex-wrap:wrap}
+  .dot{width:1.9rem;height:1.9rem;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-size:.8rem;font-weight:700;cursor:pointer}
+  .dot[aria-current="true"]{background:var(--ink);color:var(--bg)}
+  #pageLabel{font-weight:700}
+  .credit{text-align:center;color:var(--muted);font-size:.85rem;padding:.6rem}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#book">Lewati ke isi e-book</a>
+
+<header class="top">
+  <div class="brand">Panduan Kilat: Desain Media Inklusif<small>E-book interaktif • narasi audio • aksesibel</small></div>
+  <div class="toolbar" role="toolbar" aria-label="Toolbar aksesibilitas">
+    <button class="btn primary" id="audioBtn" aria-pressed="false">🔊 Dengarkan halaman ini</button>
+    <button class="btn" id="fontMinus" aria-label="Perkecil teks">A−</button>
+    <button class="btn" id="fontPlus" aria-label="Perbesar teks">A+</button>
+    <button class="btn" id="contrastBtn" aria-pressed="false">◐ Kontras tinggi</button>
+  </div>
+</header>
+
+<main id="book">
+  <div class="book" role="region" aria-label="E-book">
+
+    <!-- ============ HAL 1 : COVER ============ -->
+    <section class="page" data-audio="audio/page-01.mp3" aria-labelledby="t1">
+      <span class="kicker">E-BOOK INTERAKTIF</span>
+      <h1 id="t1" tabindex="-1">Panduan Kilat:<br>Desain Media Pembelajaran Inklusif</h1>
+      <p class="lead">Untuk guru pendidikan khusus. Disarikan dari materi Inclusive EdTech Design Bootcamp, Universitas Negeri Malang 2026.</p>
+      <div class="chips">
+        <span class="chip">🔊 Tiap halaman bisa dibacakan</span>
+        <span class="chip">← → navigasi keyboard</span>
+        <span class="chip">A+ perbesar teks</span>
+        <span class="chip">◐ mode kontras tinggi</span>
+      </div>
+      <p style="margin-top:1.2rem">Tekan <strong>Lanjut</strong> atau tombol panah kanan untuk mulai.</p>
+    </section>
+
+    <!-- ============ HAL 2 : DEFINISI ============ -->
+    <section class="page" data-audio="audio/page-02.mp3" aria-labelledby="t2">
+      <span class="kicker red">01 • KONSEP DASAR</span>
+      <h2 id="t2" tabindex="-1">Apa itu media pembelajaran inklusif?</h2>
+      <div class="card">
+        <p style="margin:0"><strong>Media yang dirancang <u>sejak awal</u> agar dapat digunakan oleh semua peserta didik, tanpa perlu adaptasi khusus yang merepotkan.</strong></p>
+      </div>
+      <div class="grid2">
+        <div class="card dont"><h3>✕ Bukan</h3><p>satu media kaku untuk semua orang.</p></div>
+        <div class="card do"><h3>✓ Melainkan</h3><p>satu media lentur yang memberi banyak jalan.</p></div>
+      </div>
+      <div class="quote">“Teknologi yang baik bukan yang canggih, melainkan yang bisa dipakai semua orang.”</div>
+    </section>
+
+    <!-- ============ HAL 3 : KENAPA PENTING ============ -->
+    <section class="page" data-audio="audio/page-03.mp3" aria-labelledby="t3">
+      <span class="kicker red">02 • KENAPA PENTING</span>
+      <h2 id="t3" tabindex="-1">Kesenjangan yang nyata</h2>
+      <ol class="steps">
+        <li>Banyak media digital dirancang untuk <strong>“siswa rata-rata”</strong> yang sebenarnya tidak ada.</li>
+        <li>Siswa dengan hambatan visual, auditori, motorik, atau neurodivergen <strong>paling dulu tertinggal</strong>.</li>
+        <li>Guru akhirnya membuat versi kedua, ketiga, <strong>beban kerja berlipat</strong>.</li>
+        <li>Solusi tempelan hampir selalu <strong>lebih mahal</strong> daripada dirancang inklusif sejak awal.</li>
+      </ol>
+      <div class="quote">Desain untuk rentang kemampuan, bukan untuk rata-rata.</div>
+    </section>
+
+    <!-- ============ HAL 4 : UDL ============ -->
+    <section class="page" data-audio="audio/page-04.mp3" aria-labelledby="t4">
+      <span class="kicker blue">03 • KERANGKA</span>
+      <h2 id="t4" tabindex="-1">UDL: Universal Design for Learning</h2>
+      <p class="lead">Tiga prinsip dari CAST, fondasi desain pembelajaran inklusif.</p>
+      <div class="grid3">
+        <div class="card"><h3>❤️ Keterlibatan</h3><p><strong>Mengapa</strong> belajar.<br>Beri pilihan, kaitkan dengan minat &amp; relevansi hidup siswa.</p></div>
+        <div class="card"><h3>👁️ Representasi</h3><p><strong>Apa</strong> yang dipelajari.<br>Sajikan lewat banyak jalur: visual, audio, teks, praktik.</p></div>
+        <div class="card"><h3>✋ Aksi &amp; Ekspresi</h3><p><strong>Bagaimana</strong> menunjukkan paham.<br>Terima beragam ekspresi: lisan, tulis, gambar, gerak.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 5 : PRINSIP 1 ============ -->
+    <section class="page" data-audio="audio/page-05.mp3" aria-labelledby="t5">
+      <span class="kicker yellow">PRINSIP 1 DARI 4</span>
+      <h2 id="t5" tabindex="-1">Dapat dipersepsi</h2>
+      <p class="lead">Semua informasi harus bisa ditangkap oleh minimal satu indera, idealnya lebih dari satu.</p>
+      <div class="grid2">
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Kontras warna teks &amp; latar yang cukup</li><li>Teks alternatif untuk setiap gambar penting</li><li>Caption untuk semua audio-video</li><li>Font bisa diperbesar tanpa rusak</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Teks kuning di atas putih</li><li>Diagram tanpa penjelasan teks</li><li>Video tanpa subtitle</li><li>Info penting hanya lewat warna</li></ul></div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 6 : PRINSIP 2 ============ -->
+    <section class="page" data-audio="audio/page-06.mp3" aria-labelledby="t6">
+      <span class="kicker yellow">PRINSIP 2 DARI 4</span>
+      <h2 id="t6" tabindex="-1">Dapat dioperasikan</h2>
+      <p class="lead">Semua fungsi bisa dipakai semua siswa, dengan cara mereka masing-masing.</p>
+      <div class="grid2">
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Navigasi penuh hanya dengan keyboard</li><li>Tombol &amp; area sentuh cukup besar</li><li>Tanpa batas waktu yang kaku</li><li>Tanpa konten berkedip / bergerak otomatis</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Tugas hangus dalam 10 detik</li><li>Tombol kecil berhimpitan</li><li>Wajib drag-and-drop pakai mouse</li><li>Animasi yang tak bisa dihentikan</li></ul></div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 7 : PRINSIP 3 ============ -->
+    <section class="page" data-audio="audio/page-07.mp3" aria-labelledby="t7">
+      <span class="kicker yellow">PRINSIP 3 DARI 4</span>
+      <h2 id="t7" tabindex="-1">Dapat dipahami</h2>
+      <p class="lead">Siswa langsung mengerti apa yang harus dilakukan, tanpa menebak-nebak.</p>
+      <div class="grid2">
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Instruksi selangkah demi selangkah</li><li>Bahasa sederhana &amp; istilah konsisten</li><li>Contoh konkret sebelum tugas</li><li>Umpan balik jelas + alasannya</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Instruksi panjang satu paragraf</li><li>Istilah ganti-ganti tiap halaman</li><li>Langsung tugas tanpa contoh</li><li>“Salah.” tanpa penjelasan</li></ul></div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 8 : PRINSIP 4 ============ -->
+    <section class="page" data-audio="audio/page-08.mp3" aria-labelledby="t8">
+      <span class="kicker yellow">PRINSIP 4 DARI 4</span>
+      <h2 id="t8" tabindex="-1">Kokoh</h2>
+      <p class="lead">Media tetap berfungsi dengan teknologi bantu dan kondisi yang beragam.</p>
+      <div class="grid2">
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Struktur heading logis (H1 → H2 → H3)</li><li>Kompatibel dengan screen reader</li><li>Jalan di HP spek rendah &amp; internet lambat</li><li>Tidak bergantung satu indera saja</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Heading dipakai sekadar memperbesar teks</li><li>Tombol gambar tanpa label</li><li>Hanya jalan di laptop terbaru</li><li>Audio sebagai satu-satunya petunjuk</li></ul></div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 9 : KUIS ============ -->
+    <section class="page" data-audio="audio/page-09.mp3" aria-labelledby="t9">
+      <span class="kicker blue">KUIS KILAT</span>
+      <h2 id="t9" tabindex="-1">Uji pemahamanmu</h2>
+      <div class="q" data-answer="0">
+        <p>1. Kapan media inklusif seharusnya dirancang?</p>
+        <label class="opt"><input type="radio" name="q1" value="0"><span>Sejak awal, untuk semua peserta didik</span></label>
+        <label class="opt"><input type="radio" name="q1" value="1"><span>Setelah ada keluhan dari siswa</span></label>
+        <label class="opt"><input type="radio" name="q1" value="2"><span>Saat guru sedang luang saja</span></label>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+      <div class="q" data-answer="0">
+        <p>2. Video pembelajaran tanpa subtitle melanggar prinsip…</p>
+        <label class="opt"><input type="radio" name="q2" value="0"><span>Dapat dipersepsi</span></label>
+        <label class="opt"><input type="radio" name="q2" value="1"><span>Dapat dioperasikan</span></label>
+        <label class="opt"><input type="radio" name="q2" value="2"><span>Kokoh</span></label>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+      <div class="q" data-answer="1">
+        <p>3. Tombol kecil yang berhimpitan melanggar prinsip…</p>
+        <label class="opt"><input type="radio" name="q3" value="0"><span>Dapat dipahami</span></label>
+        <label class="opt"><input type="radio" name="q3" value="1"><span>Dapat dioperasikan</span></label>
+        <label class="opt"><input type="radio" name="q3" value="2"><span>Dapat dipersepsi</span></label>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+      <button class="btn blue" id="checkQuiz">Periksa jawaban</button>
+      <button class="btn" id="resetQuiz" hidden>Ulangi kuis</button>
+      <p id="score" aria-live="polite"></p>
+    </section>
+
+    <!-- ============ HAL 10 : CHECKLIST + PENUTUP ============ -->
+    <section class="page" data-audio="audio/page-10.mp3" aria-labelledby="t10">
+      <span class="kicker">CHECKLIST 10 DETIK</span>
+      <h2 id="t10" tabindex="-1">Sebelum dipakai siswa, cek dulu</h2>
+      <div id="checklist">
+        <label class="check"><input type="checkbox"><span>Kontras teks cukup?</span></label>
+        <label class="check"><input type="checkbox"><span>Ada alternatif teks / audio untuk visual penting?</span></label>
+        <label class="check"><input type="checkbox"><span>Video ber-caption?</span></label>
+        <label class="check"><input type="checkbox"><span>Bisa dipakai tanpa mouse?</span></label>
+        <label class="check"><input type="checkbox"><span>Tanpa batas waktu kaku?</span></label>
+        <label class="check"><input type="checkbox"><span>Instruksi satu langkah per langkah?</span></label>
+        <label class="check"><input type="checkbox"><span>Bahasa sederhana &amp; konsisten?</span></label>
+        <label class="check"><input type="checkbox"><span>Ada contoh sebelum tugas?</span></label>
+        <label class="check"><input type="checkbox"><span>Umpan balik menjelaskan, bukan sekadar benar/salah?</span></label>
+        <label class="check"><input type="checkbox"><span>Ringan dibuka di HP lama / internet lambat?</span></label>
+      </div>
+      <div class="quote">Satu media yang diuji ke 3 siswa &gt; sepuluh media yang tak pernah dicoba.</div>
+      <p class="credit" style="text-align:left">Materi: Muhammad Anas Yusuf • Inclusive EdTech Design Bootcamp, UM 2026</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="nav">
+  <button class="btn" id="prevBtn">← Kembali</button>
+  <div class="dots" id="dots" role="navigation" aria-label="Pindah halaman"></div>
+  <span id="pageLabel" aria-live="polite"></span>
+  <button class="btn primary" id="nextBtn">Lanjut →</button>
+</footer>
+<p class="credit">E-book interaktif • dibuat berdasarkan materi presentasi bootcamp • bebas dibagikan untuk pembelajaran</p>
+
+<audio id="narrator" preload="none"></audio>
+<p class="sr" id="live" aria-live="polite"></p>
+
+<script>
+(function(){
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var dotsBox = document.getElementById('dots');
+  var label = document.getElementById('pageLabel');
+  var live = document.getElementById('live');
+  var audio = document.getElementById('narrator');
+  var audioBtn = document.getElementById('audioBtn');
+  var idx = 0;
+
+  pages.forEach(function(p,i){
+    var d = document.createElement('button');
+    d.className = 'dot'; d.textContent = (i+1); d.setAttribute('aria-label','Ke halaman '+(i+1));
+    d.addEventListener('click', function(){ show(i); });
+    dotsBox.appendChild(d);
+  });
+  var dots = Array.prototype.slice.call(dotsBox.children);
+
+  function stopAudio(){
+    audio.pause(); audio.removeAttribute('src'); audio.load();
+    audioBtn.setAttribute('aria-pressed','false');
+    audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
+  }
+  function show(n){
+    idx = Math.max(0, Math.min(pages.length-1, n));
+    stopAudio();
+    pages.forEach(function(p,i){
+      p.classList.toggle('active', i===idx);
+      dots[i].setAttribute('aria-current', i===idx ? 'true':'false');
+    });
+    label.textContent = 'Halaman '+(idx+1)+' dari '+pages.length;
+    live.textContent = 'Halaman '+(idx+1)+' dari '+pages.length;
+    var h = pages[idx].querySelector('h1,h2');
+    if(h) h.focus({preventScroll:true});
+    window.scrollTo(0,0);
+    document.getElementById('prevBtn').disabled = (idx===0);
+    document.getElementById('nextBtn').disabled = (idx===pages.length-1);
+  }
+  document.getElementById('prevBtn').addEventListener('click', function(){ show(idx-1); });
+  document.getElementById('nextBtn').addEventListener('click', function(){ show(idx+1); });
+  document.addEventListener('keydown', function(e){
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if(tag==='INPUT' && document.activeElement.type==='radio') return;
+    if(e.key==='ArrowRight') show(idx+1);
+    else if(e.key==='ArrowLeft') show(idx-1);
+    else if(e.key==='Home') show(0);
+    else if(e.key==='End') show(pages.length-1);
+  });
+
+  audioBtn.addEventListener('click', function(){
+    if(!audio.getAttribute('src')){
+      var f = pages[idx].getAttribute('data-audio');
+      if(!f) return;
+      audio.src = f;
+    }
+    if(audio.paused){
+      audio.play();
+      audioBtn.setAttribute('aria-pressed','true');
+      audioBtn.innerHTML = '⏸ Jeda narasi';
+    }else{
+      audio.pause();
+      audioBtn.setAttribute('aria-pressed','false');
+      audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
+    }
+  });
+  audio.addEventListener('ended', function(){
+    audioBtn.setAttribute('aria-pressed','false');
+    audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
+  });
+
+  var fs = 100;
+  function setFs(v){
+    fs = Math.max(87.5, Math.min(175, v));
+    document.documentElement.style.fontSize = fs + '%';
+  }
+  document.getElementById('fontPlus').addEventListener('click', function(){ setFs(fs+12.5); });
+  document.getElementById('fontMinus').addEventListener('click', function(){ setFs(fs-12.5); });
+  var hcBtn = document.getElementById('contrastBtn');
+  hcBtn.addEventListener('click', function(){
+    var on = document.body.classList.toggle('hc');
+    hcBtn.setAttribute('aria-pressed', on ? 'true':'false');
+  });
+
+  /* ---------- quiz ---------- */
+  var checked = false;
+  document.getElementById('checkQuiz').addEventListener('click', function(){
+    if(checked) return;
+    var score = 0, total = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('.q'), function(q){
+      total++;
+      var ans = parseInt(q.getAttribute('data-answer'),10);
+      var sel = q.querySelector('input[type=radio]:checked');
+      var fb = q.querySelector('.fb');
+      var opts = q.querySelectorAll('.opt');
+      opts.forEach(function(o){ o.classList.add('disabled'); });
+      q.querySelectorAll('input').forEach(function(i){ i.disabled = true; });
+      if(sel && parseInt(sel.value,10)===ans){
+        score++;
+        sel.closest('.opt').classList.add('correct');
+        fb.textContent = '✓ Benar!'; fb.className = 'fb ok';
+      }else{
+        if(sel) sel.closest('.opt').classList.add('wrong');
+        opts[ans].classList.add('correct');
+        fb.textContent = '✕ Kurang tepat. Jawaban yang benar ditandai hijau.';
+        fb.className = 'fb no';
+      }
+    });
+    document.getElementById('score').textContent = 'Skor: '+score+' dari '+total +
+      (score===total ? ' — sempurna! 🎉' : ' — baca lagi halamannya, lalu coba lagi.');
+    document.getElementById('resetQuiz').hidden = false;
+    checked = true;
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function(){
+    document.querySelectorAll('.q').forEach(function(q){
+      q.querySelectorAll('input').forEach(function(i){ i.disabled=false; i.checked=false; });
+      q.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('correct','wrong','disabled'); });
+      var fb = q.querySelector('.fb'); fb.textContent=''; fb.className='fb';
+    });
+    document.getElementById('score').textContent = '';
+    document.getElementById('resetQuiz').hidden = true;
+    checked = false;
+  });
+
+  /* ---------- checklist ---------- */
+  document.querySelectorAll('#checklist .check input').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      cb.closest('.check').classList.toggle('done', cb.checked);
+    });
+  });
+
+  show(0);
+})();
+</script>
+</body>
+</html>
