@@ -18,11 +18,6 @@
     font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
     line-height:1.6;min-height:100vh;display:flex;flex-direction:column;
   }
-  /* ---------- high contrast mode ---------- */
-  body.hc{--bg:#000;--ink:#fff;--muted:#e8e8e8;--card:#0a0a0a;--yellow:#ffd800;--blue:#7aa2ff;--red:#ff6b6b;--green:#4ade80}
-  body.hc .card,body.hc .toolbar,body.hc header.top,body.hc footer.nav{border-color:#fff}
-  body.hc .btn{border-color:#fff}
-  body.hc .opt{border-color:#fff}
   /* ---------- layout ---------- */
   .skip{position:absolute;left:-9999px;top:0;background:var(--yellow);color:#000;padding:.6rem 1rem;font-weight:700;z-index:99}
   .skip:focus{left:0}
@@ -62,7 +57,6 @@
   .dont{border-top:6px solid var(--red)}
   .do h3{color:var(--green)} .dont h3{color:var(--red)}
   .quote{background:var(--yellow);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:1rem;font-weight:700;font-size:1.1rem;margin-top:1rem;color:#000}
-  body.hc .quote{color:#000}
   ol.steps{padding-left:1.3rem} ol.steps li{margin:.5rem 0}
   .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
   .chip{border:2px solid var(--ink);background:var(--bg);padding:.35rem .8rem;font-size:.9rem;font-weight:600}
@@ -81,7 +75,6 @@
   .check{display:flex;gap:.7rem;align-items:flex-start;border:2px solid var(--ink);background:var(--bg);padding:.55rem .8rem;margin:.4rem 0;cursor:pointer}
   .check input{transform:scale(1.35);margin-top:.3rem}
   .check.done{background:var(--yellow)}
-  body.hc .check.done{background:#3a2f00}
   /* footer nav */
   footer.nav{background:var(--card);border-top:3px solid var(--ink);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
   .dots{display:flex;gap:.4rem;flex-wrap:wrap}
@@ -98,11 +91,8 @@
 
 <header class="top">
   <div class="brand">Panduan Kilat: Desain Media Inklusif<small>E-book interaktif • narasi audio • aksesibel</small></div>
-  <div class="toolbar" role="toolbar" aria-label="Toolbar aksesibilitas">
+  <div class="toolbar" role="toolbar" aria-label="Toolbar e-book">
     <button class="btn primary" id="audioBtn" aria-pressed="false">🔊 Dengarkan halaman ini</button>
-    <button class="btn" id="fontMinus" aria-label="Perkecil teks">A−</button>
-    <button class="btn" id="fontPlus" aria-label="Perbesar teks">A+</button>
-    <button class="btn" id="contrastBtn" aria-pressed="false">◐ Kontras tinggi</button>
   </div>
 </header>
 
@@ -117,10 +107,10 @@
       <div class="chips">
         <span class="chip">🔊 Tiap halaman bisa dibacakan</span>
         <span class="chip">← → navigasi keyboard</span>
-        <span class="chip">A+ perbesar teks</span>
-        <span class="chip">◐ mode kontras tinggi</span>
+        <span class="chip">♿ Toolbar AksesKita (Alt+A)</span>
       </div>
-      <p style="margin-top:1.2rem">Tekan <strong>Lanjut</strong> atau tombol panah kanan untuk mulai.</p>
+      <p style="margin-top:1.2rem">Butuh penyesuaian tampilan? Buka toolbar aksesibilitas <strong>AksesKita</strong> lewat tombol melayang ♿ di pojok layar, atau tekan <kbd>Alt</kbd>+<kbd>A</kbd>.</p>
+      <p>Tekan <strong>Lanjut</strong> atau tombol panah kanan untuk mulai.</p>
     </section>
 
     <!-- ============ HAL 2 : DEFINISI ============ -->
@@ -340,18 +330,6 @@
     audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
   });
 
-  var fs = 100;
-  function setFs(v){
-    fs = Math.max(87.5, Math.min(175, v));
-    document.documentElement.style.fontSize = fs + '%';
-  }
-  document.getElementById('fontPlus').addEventListener('click', function(){ setFs(fs+12.5); });
-  document.getElementById('fontMinus').addEventListener('click', function(){ setFs(fs-12.5); });
-  var hcBtn = document.getElementById('contrastBtn');
-  hcBtn.addEventListener('click', function(){
-    var on = document.body.classList.toggle('hc');
-    hcBtn.setAttribute('aria-pressed', on ? 'true':'false');
-  });
 
   /* ---------- quiz ---------- */
   var checked = false;
@@ -403,5 +381,7 @@
   show(0);
 })();
 </script>
+<script src="vendor/akseskita.min.js" defer></script>
+<akseskita-widget></akseskita-widget>
 </body>
 </html>
