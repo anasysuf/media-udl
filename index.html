@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="E-book interaktif: Panduan Kilat Desain Media Pembelajaran Inklusif untuk guru pendidikan khusus. Dilengkapi toolbar aksesibilitas AksesKita.">
-<title>Panduan Kilat: Desain Media Pembelajaran Inklusif</title>
+<meta name="description" content="Materi bootcamp: Media Pembelajaran Digital — Inclusive EdTech Design Bootcamp for Special Educators, Universitas Negeri Malang 2026. Dilengkapi toolbar aksesibilitas AksesKita.">
+<title>Media Pembelajaran Digital — Materi Bootcamp Inclusive EdTech UM 2026</title>
 <style>
   :root{
     --bg:#F0F0F0; --ink:#121212; --muted:#555;
@@ -24,7 +24,6 @@
   header.top{background:var(--card);border-bottom:3px solid var(--ink);padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
   header.top .brand{font-weight:800;font-size:1.05rem}
   header.top .brand small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
-  .toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
   .btn{
     font:inherit;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink);
     border:2px solid var(--ink);padding:.45rem .9rem;box-shadow:3px 3px 0 var(--ink);
@@ -57,9 +56,14 @@
   .dont{border-top:6px solid var(--red)}
   .do h3{color:var(--green)} .dont h3{color:var(--red)}
   .quote{background:var(--yellow);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:1rem;font-weight:700;font-size:1.1rem;margin-top:1rem;color:#000}
+  .quote.blue{background:var(--blue);color:#fff}
+  .quote.red{background:var(--red);color:#fff}
   ol.steps{padding-left:1.3rem} ol.steps li{margin:.5rem 0}
   .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
   .chip{border:2px solid var(--ink);background:var(--bg);padding:.35rem .8rem;font-size:.9rem;font-weight:600}
+  .illus{width:100%;height:auto;display:block;border:2px solid var(--ink);margin-bottom:.7rem}
+  .qr{display:block;margin:1rem auto;width:200px;height:200px;border:3px solid var(--ink)}
+  .center{text-align:center}
   /* quiz */
   .q{border:2px solid var(--ink);padding:1rem;margin:1rem 0;background:var(--bg)}
   .q p{font-weight:700;margin-top:0}
@@ -83,20 +87,20 @@
 </style>
 </head>
 <body>
-<a class="skip" href="#book">Lewati ke isi e-book</a>
+<a class="skip" href="#book">Lewati ke isi materi</a>
 
 <header class="top">
-  <div class="brand">Panduan Kilat: Desain Media Inklusif<small>E-book interaktif • aksesibel</small></div>
+  <div class="brand">Media Pembelajaran Digital<small>Materi Bootcamp Inclusive EdTech • UM 2026</small></div>
 </header>
 
 <main id="book">
-  <div class="book" role="region" aria-label="E-book">
+  <div class="book" role="region" aria-label="Materi bootcamp">
 
     <!-- ============ HAL 1 : COVER ============ -->
     <section class="page" aria-labelledby="t1">
-      <span class="kicker">E-BOOK INTERAKTIF</span>
-      <h1 id="t1" tabindex="-1">Panduan Kilat:<br>Desain Media Pembelajaran Inklusif</h1>
-      <p class="lead">Untuk guru pendidikan khusus. Disarikan dari materi Inclusive EdTech Design Bootcamp, Universitas Negeri Malang 2026.</p>
+      <span class="kicker">MATERI BOOTCAMP</span>
+      <h1 id="t1" tabindex="-1">Inclusive EdTech Design Bootcamp<br><span style="color:var(--blue)">for Special Educators</span></h1>
+      <p class="lead">Workshop Pengembangan Media Pembelajaran Berbasis Digital — Departemen Pendidikan Khusus, Universitas Negeri Malang, 30 September 2026.</p>
       <div class="chips">
         <span class="chip">🔊 Dibacakan via AksesKita</span>
         <span class="chip">← → navigasi keyboard</span>
@@ -106,112 +110,331 @@
       <p>Tekan <strong>Lanjut</strong> atau tombol panah kanan untuk mulai.</p>
     </section>
 
-    <!-- ============ HAL 2 : DEFINISI ============ -->
+    <!-- ============ HAL 2 : NARASUMBER ============ -->
     <section class="page" aria-labelledby="t2">
-      <span class="kicker red">01 • KONSEP DASAR</span>
-      <h2 id="t2" tabindex="-1">Apa itu media pembelajaran inklusif?</h2>
+      <span class="kicker yellow">NARASUMBER</span>
+      <h2 id="t2" tabindex="-1">Halo, saya <span style="color:var(--blue)">Muhammad Anas Yusuf</span></h2>
+      <p class="lead">Web Application Developer &amp; Technical Lead, membangun aplikasi web yang inklusif dan berdampak sosial, dari konsep sampai deployment.</p>
+      <div class="grid2">
+        <div class="card"><h3>Akseskita</h3><p>Perangkat web asistif: toolbar aksesibilitas &amp; komunikator AAC visual. Open source, bilingual ID/EN.</p></div>
+        <div class="card"><h3>AccesiLearn</h3><p>LMS inklusif untuk hambatan visual, auditori, motorik, dan neurodivergen.</p></div>
+        <div class="card"><h3>SLB Super App</h3><p>Asesmen diagnostik, PPI, &amp; buku penghubung orang tua–guru untuk SLB.</p></div>
+        <div class="card"><h3>Pantau GPK</h3><p>Pemantauan progres siswa inklusi dengan kurva tren &amp; ringkasan AI.</p></div>
+      </div>
+      <div class="quote">Semua karya berangkat dari kebutuhan nyata pengguna, bukan dari teknologinya.</div>
+    </section>
+
+    <!-- ============ HAL 3 : AGENDA ============ -->
+    <section class="page" aria-labelledby="t3">
+      <span class="kicker">AGENDA</span>
+      <h2 id="t3" tabindex="-1">Agenda Hari Ini</h2>
+      <ol class="steps">
+        <li><strong>Pembukaan &amp; perkenalan</strong> — kenalan dan pemetaan harapan peserta.</li>
+        <li><strong>Sesi 1: Kenapa teknologi harus inklusif?</strong> — masalah, data, dan urgensi.</li>
+        <li><strong>Sesi 2: Memahami keberagaman peserta didik</strong> — ragam hambatan &amp; prinsip UDL.</li>
+        <li><strong>Sesi 3: Prinsip desain media inklusif</strong> — 4 prinsip + studi kasus + toolkit gratis.</li>
+        <li><strong>Contoh konkret per ketunaan</strong> — media nyata yang bisa langsung ditiru.</li>
+        <li><strong>Kuis kilat interaktif</strong> — main bareng, jawab A/B/C sekelas.</li>
+        <li><strong>Penutup</strong> — refleksi &amp; tindak lanjut.</li>
+      </ol>
+    </section>
+
+    <!-- ============ HAL 4 : SESI 1 ============ -->
+    <section class="page" aria-labelledby="t4">
+      <span class="kicker red">SESI 1</span>
+      <h2 id="t4" tabindex="-1">Kenapa teknologi harus inklusif?</h2>
+      <div class="quote red">Teknologi yang baik bukan yang canggih, melainkan yang bisa dipakai semua orang.</div>
+    </section>
+
+    <!-- ============ HAL 5 : REFLEKSI ============ -->
+    <section class="page" aria-labelledby="t5">
+      <span class="kicker red">REFLEKSI</span>
+      <h2 id="t5" tabindex="-1">Pernah mengalami ini?</h2>
+      <div class="grid3">
+        <div class="card"><h3>01</h3><p>Media pembelajaran yang Anda buat ternyata sulit digunakan sebagian siswa, apa yang terjadi?</p></div>
+        <div class="card"><h3>02</h3><p>Siswa harus meminta bantuan terus-menerus hanya untuk <strong>mengakses</strong> materi, bukan untuk <strong>memahami</strong> materi.</p></div>
+        <div class="card"><h3>03</h3><p>Anda menghabiskan waktu mengakali media, bukan mengajar.</p></div>
+      </div>
+      <div class="quote">Diskusikan dengan teman sebelah: 3 menit.</div>
+    </section>
+
+    <!-- ============ HAL 6 : KESENJANGAN ============ -->
+    <section class="page" aria-labelledby="t6">
+      <span class="kicker blue">KONTEKS</span>
+      <h2 id="t6" tabindex="-1">Kesenjangan yang nyata</h2>
+      <ol class="steps">
+        <li>Banyak media digital dirancang untuk <strong>"siswa rata-rata"</strong> yang sebenarnya tidak ada.</li>
+        <li>Siswa dengan hambatan visual, auditori, motorik, atau neurodivergen <strong>paling dulu tertinggal</strong>.</li>
+        <li>Guru akhirnya membuat versi kedua, ketiga, <strong>beban kerja berlipat</strong>.</li>
+        <li>Solusi tempelan ("nanti diakali") hampir selalu <strong>lebih mahal</strong> daripada dirancang inklusif sejak awal.</li>
+      </ol>
+      <div class="quote blue">Desain untuk rentang kemampuan, bukan untuk rata-rata.</div>
+    </section>
+
+    <!-- ============ HAL 7 : DEFINISI ============ -->
+    <section class="page" aria-labelledby="t7">
+      <span class="kicker blue">KONSEP KUNCI</span>
+      <h2 id="t7" tabindex="-1">Apa itu media pembelajaran inklusif?</h2>
       <div class="card">
         <p style="margin:0"><strong>Media yang dirancang <u>sejak awal</u> agar dapat digunakan oleh semua peserta didik, tanpa perlu adaptasi khusus yang merepotkan.</strong></p>
       </div>
-      <div class="grid2">
-        <div class="card dont"><h3>✕ Bukan</h3><p>satu media kaku untuk semua orang.</p></div>
-        <div class="card do"><h3>✓ Melainkan</h3><p>satu media lentur yang memberi banyak jalan.</p></div>
+      <div class="grid3">
+        <div class="card dont"><h3>✕ Bukan</h3><p>Satu media kaku untuk semua orang.</p></div>
+        <div class="card do"><h3>✓ Melainkan</h3><p>Satu media lentur yang memberi banyak jalan.</p></div>
+        <div class="card"><h3>★ Hasilnya</h3><p>Siswa fokus pada <strong>isi</strong> belajar, bukan pada <strong>cara</strong> mengakses.</p></div>
       </div>
-      <div class="quote">“Teknologi yang baik bukan yang canggih, melainkan yang bisa dipakai semua orang.”</div>
+      <div class="quote">Analogi: trotoar dengan ramp — dibuat untuk kursi roda, tapi membantu semua orang.</div>
     </section>
 
-    <!-- ============ HAL 3 : KENAPA PENTING ============ -->
-    <section class="page" aria-labelledby="t3">
-      <span class="kicker red">02 • KENAPA PENTING</span>
-      <h2 id="t3" tabindex="-1">Kesenjangan yang nyata</h2>
-      <ol class="steps">
-        <li>Banyak media digital dirancang untuk <strong>“siswa rata-rata”</strong> yang sebenarnya tidak ada.</li>
-        <li>Siswa dengan hambatan visual, auditori, motorik, atau neurodivergen <strong>paling dulu tertinggal</strong>.</li>
-        <li>Guru akhirnya membuat versi kedua, ketiga, <strong>beban kerja berlipat</strong>.</li>
-        <li>Solusi tempelan hampir selalu <strong>lebih mahal</strong> daripada dirancang inklusif sejak awal.</li>
-      </ol>
-      <div class="quote">Desain untuk rentang kemampuan, bukan untuk rata-rata.</div>
+    <!-- ============ HAL 8 : SESI 2 ============ -->
+    <section class="page" aria-labelledby="t8">
+      <span class="kicker blue">SESI 2</span>
+      <h2 id="t8" tabindex="-1">Memahami keberagaman peserta didik</h2>
+      <div class="quote blue">Satu label tidak sama dengan satu kebutuhan, gali kebutuhan individunya.</div>
     </section>
 
-    <!-- ============ HAL 4 : UDL ============ -->
-    <section class="page" aria-labelledby="t4">
-      <span class="kicker blue">03 • KERANGKA</span>
-      <h2 id="t4" tabindex="-1">UDL: Universal Design for Learning</h2>
+    <!-- ============ HAL 9 : PETA KEBUTUHAN ============ -->
+    <section class="page" aria-labelledby="t9">
+      <span class="kicker red">PETA KEBUTUHAN</span>
+      <h2 id="t9" tabindex="-1">Ragam hambatan &amp; kebutuhan</h2>
+      <div class="grid3">
+        <div class="card"><h3 style="color:var(--red)">Visual</h3><p>Low vision, buta warna, kebutaan total.</p><p><strong>Butuh:</strong> kontras, teks alternatif, audio.</p></div>
+        <div class="card"><h3 style="color:var(--blue)">Auditori</h3><p>Tuli, kurang dengar.</p><p><strong>Butuh:</strong> caption, bahasa isyarat, visual.</p></div>
+        <div class="card"><h3 style="color:#B07D00">Motorik</h3><p>Keterbatasan gerak tangan/jari.</p><p><strong>Butuh:</strong> tombol besar, tanpa mouse.</p></div>
+        <div class="card"><h3 style="color:var(--green)">Intelektual</h3><p>Kebutuhan pemahaman bertahap.</p><p><strong>Butuh:</strong> bahasa sederhana, langkah kecil.</p></div>
+        <div class="card"><h3 style="color:var(--blue)">Neurodivergen</h3><p>ADHD, disleksia, autisme.</p><p><strong>Butuh:</strong> minim distraksi, pola konsisten.</p></div>
+        <div class="card"><h3 style="color:var(--red)">Ganda</h3><p>Kombinasi beberapa hambatan.</p><p><strong>Butuh:</strong> banyak jalur sekaligus.</p></div>
+      </div>
+      <div class="quote">Satu label tidak sama dengan satu kebutuhan. Dua siswa tunanetra bisa butuh pendekatan berbeda.</div>
+    </section>
+
+    <!-- ============ HAL 10 : UDL ============ -->
+    <section class="page" aria-labelledby="t10">
+      <span class="kicker blue">KERANGKA</span>
+      <h2 id="t10" tabindex="-1">UDL: Universal Design for Learning</h2>
       <p class="lead">Tiga prinsip dari CAST, fondasi desain pembelajaran inklusif.</p>
       <div class="grid3">
-        <div class="card"><h3>❤️ Keterlibatan</h3><p><strong>Mengapa</strong> belajar.<br>Beri pilihan, kaitkan dengan minat &amp; relevansi hidup siswa.</p></div>
-        <div class="card"><h3>👁️ Representasi</h3><p><strong>Apa</strong> yang dipelajari.<br>Sajikan lewat banyak jalur: visual, audio, teks, praktik.</p></div>
-        <div class="card"><h3>✋ Aksi &amp; Ekspresi</h3><p><strong>Bagaimana</strong> menunjukkan paham.<br>Terima beragam ekspresi: lisan, tulis, gambar, gerak.</p></div>
+        <div class="card"><h3>01 · Keterlibatan</h3><p><strong>Mengapa</strong> belajar.<br>Beri pilihan, kaitkan dengan minat &amp; relevansi hidup siswa.</p></div>
+        <div class="card"><h3>02 · Representasi</h3><p><strong>Apa</strong> yang dipelajari.<br>Sajikan materi lewat banyak jalur: visual, audio, teks, praktik.</p></div>
+        <div class="card"><h3>03 · Aksi &amp; Ekspresi</h3><p><strong>Bagaimana</strong> menunjukkan paham.<br>Terima beragam cara berekspresi: lisan, tulis, gambar, gerak.</p></div>
       </div>
     </section>
 
-    <!-- ============ HAL 5 : PRINSIP 1 ============ -->
-    <section class="page" aria-labelledby="t5">
+    <!-- ============ HAL 11 : SESI 3 ============ -->
+    <section class="page" aria-labelledby="t11">
+      <span class="kicker red">SESI 3</span>
+      <h2 id="t11" tabindex="-1">Prinsip desain media inklusif</h2>
+      <p class="lead">Empat prinsip praktis. Setiap prinsip disertai contoh benar vs salah.</p>
+    </section>
+
+    <!-- ============ HAL 12 : PRINSIP 1 ============ -->
+    <section class="page" aria-labelledby="t12">
       <span class="kicker yellow">PRINSIP 1 DARI 4</span>
-      <h2 id="t5" tabindex="-1">Dapat dipersepsi</h2>
+      <h2 id="t12" tabindex="-1">Dapat dipersepsi</h2>
       <p class="lead">Semua informasi harus bisa ditangkap oleh minimal satu indera, idealnya lebih dari satu.</p>
       <div class="grid2">
-        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Kontras warna teks &amp; latar yang cukup</li><li>Teks alternatif untuk setiap gambar penting</li><li>Caption untuk semua audio-video</li><li>Font bisa diperbesar tanpa rusak</li></ul></div>
-        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Teks kuning di atas putih</li><li>Diagram tanpa penjelasan teks</li><li>Video tanpa subtitle</li><li>Info penting hanya lewat warna</li></ul></div>
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Kontras warna teks &amp; latar yang cukup</li><li>Teks alternatif untuk setiap gambar penting</li><li>Caption / subtitle untuk semua audio-video</li><li>Ukuran font bisa diperbesar tanpa rusak</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Teks kuning di atas putih</li><li>Gambar diagram tanpa penjelasan teks</li><li>Video pembelajaran tanpa subtitle</li><li>Info penting hanya lewat warna</li></ul></div>
       </div>
     </section>
 
-    <!-- ============ HAL 6 : PRINSIP 2 ============ -->
-    <section class="page" aria-labelledby="t6">
+    <!-- ============ HAL 13 : PRINSIP 2 ============ -->
+    <section class="page" aria-labelledby="t13">
       <span class="kicker yellow">PRINSIP 2 DARI 4</span>
-      <h2 id="t6" tabindex="-1">Dapat dioperasikan</h2>
+      <h2 id="t13" tabindex="-1">Dapat dioperasikan</h2>
       <p class="lead">Semua fungsi bisa dipakai semua siswa, dengan cara mereka masing-masing.</p>
       <div class="grid2">
-        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Navigasi penuh hanya dengan keyboard</li><li>Tombol &amp; area sentuh cukup besar</li><li>Tanpa batas waktu yang kaku</li><li>Tanpa konten berkedip / bergerak otomatis</li></ul></div>
-        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Tugas hangus dalam 10 detik</li><li>Tombol kecil berhimpitan</li><li>Wajib drag-and-drop pakai mouse</li><li>Animasi yang tak bisa dihentikan</li></ul></div>
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Bisa dinavigasi hanya dengan keyboard</li><li>Tombol &amp; area sentuh cukup besar</li><li>Tidak ada batas waktu yang kaku</li><li>Tidak ada konten berkedip / bergerak otomatis</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Tugas yang hangus dalam 10 detik</li><li>Tombol kecil berhimpitan</li><li>Wajib drag-and-drop pakai mouse</li><li>Animasi yang tidak bisa dihentikan</li></ul></div>
       </div>
     </section>
 
-    <!-- ============ HAL 7 : PRINSIP 3 ============ -->
-    <section class="page" aria-labelledby="t7">
+    <!-- ============ HAL 14 : PRINSIP 3 ============ -->
+    <section class="page" aria-labelledby="t14">
       <span class="kicker yellow">PRINSIP 3 DARI 4</span>
-      <h2 id="t7" tabindex="-1">Dapat dipahami</h2>
+      <h2 id="t14" tabindex="-1">Dapat dipahami</h2>
       <p class="lead">Siswa langsung mengerti apa yang harus dilakukan, tanpa menebak-nebak.</p>
       <div class="grid2">
-        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Instruksi selangkah demi selangkah</li><li>Bahasa sederhana &amp; istilah konsisten</li><li>Contoh konkret sebelum tugas</li><li>Umpan balik jelas + alasannya</li></ul></div>
-        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Instruksi panjang satu paragraf</li><li>Istilah ganti-ganti tiap halaman</li><li>Langsung tugas tanpa contoh</li><li>“Salah.” tanpa penjelasan</li></ul></div>
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Instruksi langkah demi langkah, satu per langkah</li><li>Bahasa sederhana &amp; istilah konsisten</li><li>Contoh konkret sebelum tugas</li><li>Umpan balik yang jelas: benar / coba lagi + alasannya</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Instruksi panjang satu paragraf</li><li>Istilah ganti-ganti tiap halaman</li><li>Langsung tugas tanpa contoh</li><li>"Salah." tanpa penjelasan</li></ul></div>
       </div>
     </section>
 
-    <!-- ============ HAL 8 : PRINSIP 4 ============ -->
-    <section class="page" aria-labelledby="t8">
+    <!-- ============ HAL 15 : PRINSIP 4 ============ -->
+    <section class="page" aria-labelledby="t15">
       <span class="kicker yellow">PRINSIP 4 DARI 4</span>
-      <h2 id="t8" tabindex="-1">Kokoh</h2>
+      <h2 id="t15" tabindex="-1">Kokoh</h2>
       <p class="lead">Media tetap berfungsi dengan teknologi bantu dan kondisi yang beragam.</p>
       <div class="grid2">
-        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Struktur heading logis (H1 → H2 → H3)</li><li>Kompatibel dengan screen reader</li><li>Jalan di HP spek rendah &amp; internet lambat</li><li>Tidak bergantung satu indera saja</li></ul></div>
-        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Heading dipakai sekadar memperbesar teks</li><li>Tombol gambar tanpa label</li><li>Hanya jalan di laptop terbaru</li><li>Audio sebagai satu-satunya petunjuk</li></ul></div>
+        <div class="card do"><h3>✓ Lakukan</h3><ul><li>Struktur heading logis (H1 → H2 → H3)</li><li>Kompatibel dengan screen reader</li><li>Berfungsi di HP spek rendah &amp; internet lambat</li><li>Tidak bergantung pada satu indera saja</li></ul></div>
+        <div class="card dont"><h3>✕ Hindari</h3><ul><li>Heading dipakai sekadar untuk memperbesar teks</li><li>Tombol berupa gambar tanpa label</li><li>Hanya jalan di laptop terbaru</li><li>Audio sebagai satu-satunya petunjuk</li></ul></div>
+      </div>
+      <div class="quote">Realita lapangan: banyak sekolah memakai HP lama dan internet terbatas. Media yang ringan = media yang inklusif.</div>
+    </section>
+
+    <!-- ============ HAL 16 : STUDI KASUS 1 ============ -->
+    <section class="page" aria-labelledby="t16">
+      <span class="kicker blue">STUDI KASUS 1</span>
+      <h2 id="t16" tabindex="-1" style="color:var(--blue)">Akseskita</h2>
+      <ol class="steps">
+        <li>Perangkat web asistif: toolbar aksesibilitas + komunikator AAC visual.</li>
+        <li>Zero dependencies, ringan, jalan di perangkat sederhana.</li>
+        <li>Bilingual Indonesia–Inggris; open source.</li>
+        <li><strong>Pelajaran:</strong> aksesibilitas bisa ditempelkan ke situs yang sudah ada… tetapi <strong>jauh lebih kuat bila dirancang sejak awal</strong> (itulah tugas kita hari ini).</li>
+      </ol>
+      <div class="quote blue">Coba bayangkan: toolbar Akseskita dipasang di media pembelajaran Anda — siswa low-vision memperbesar teks &amp; menaikkan kontras sendiri, tanpa meminta bantuan.</div>
+    </section>
+
+    <!-- ============ HAL 17 : STUDI KASUS 2 ============ -->
+    <section class="page" aria-labelledby="t17">
+      <span class="kicker blue">STUDI KASUS 2</span>
+      <h2 id="t17" tabindex="-1"><span style="color:var(--blue)">AccesiLearn</span> &amp; SLB Super App</h2>
+      <ol class="steps">
+        <li>AccesiLearn: LMS untuk hambatan visual, auditori, motorik, &amp; neurodivergen.</li>
+        <li>SLB Super App: asesmen diagnostik, Program Pembelajaran Individual (PPI), buku penghubung orang tua–guru.</li>
+        <li>Pantau GPK: kurva tren perkembangan + ringkasan naratif siap ekspor ke WhatsApp.</li>
+        <li><strong>Pelajaran:</strong> libatkan pengguna sejak hari pertama; data perkembangan membantu guru mengambil keputusan.</li>
+      </ol>
+      <div class="quote blue">Kunci keberhasilan: fitur terbaik lahir dari observasi lapangan bersama guru SLB, bukan dari ruang meeting.</div>
+    </section>
+
+    <!-- ============ HAL 18 : JEMBATAN TOOLKIT ============ -->
+    <section class="page" aria-labelledby="t18">
+      <span class="kicker blue">JEMBATAN KE PRAKTIK</span>
+      <h2 id="t18" tabindex="-1">Bikin media inklusif tanpa ngoding</h2>
+      <p class="lead">Lima platform gratis yang bisa langsung dipakai, pilih sesuai kebutuhan siswa Anda.</p>
+    </section>
+
+    <!-- ============ HAL 19 : TOOLKIT 1 ============ -->
+    <section class="page" aria-labelledby="t19">
+      <span class="kicker blue">TOOLKIT GRATIS · BAGIAN 1</span>
+      <h2 id="t19" tabindex="-1">Interaktif &amp; multisensori</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3 style="color:var(--blue)">H5P via Lumi</h3>
+          <p>Aplikasi desktop gratis (offline) untuk membuat konten H5P.</p>
+          <ul><li>Video interaktif dengan kuis di dalamnya</li><li>Kuis drag-and-drop &amp; kartu memori</li><li>Diekspor sebagai satu file HTML siap bagikan</li></ul>
+          <p><strong>Cocok untuk:</strong> semua hambatan, terutama yang butuh repetisi multisensori.</p>
+          <p style="color:var(--green);font-weight:700">Gratis</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--red)">Book Creator</h3>
+          <p>Membuat e-book interaktif langsung dari browser/HP.</p>
+          <ul><li>Setiap halaman bisa ditempeli rekaman suara guru</li><li>Siswa membalik halaman sambil mendengar narasi</li><li>Bisa disematkan gambar &amp; video pendek</li></ul>
+          <p><strong>Cocok untuk:</strong> tuna netra, disleksia, dan kesulitan membaca.</p>
+          <p style="color:var(--green);font-weight:700">Gratis</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ HAL 9 : KUIS ============ -->
-    <section class="page" aria-labelledby="t9">
-      <span class="kicker blue">KUIS KILAT</span>
-      <h2 id="t9" tabindex="-1">Uji pemahamanmu</h2>
-      <div class="q" data-answer="0">
-        <p>1. Kapan media inklusif seharusnya dirancang?</p>
-        <label class="opt"><input type="radio" name="q1" value="0"><span>Sejak awal, untuk semua peserta didik</span></label>
-        <label class="opt"><input type="radio" name="q1" value="1"><span>Setelah ada keluhan dari siswa</span></label>
-        <label class="opt"><input type="radio" name="q1" value="2"><span>Saat guru sedang luang saja</span></label>
-        <p class="fb" aria-live="polite"></p>
+    <!-- ============ HAL 20 : TOOLKIT 2 ============ -->
+    <section class="page" aria-labelledby="t20">
+      <span class="kicker red">TOOLKIT GRATIS · BAGIAN 2</span>
+      <h2 id="t20" tabindex="-1">Video, game &amp; desain cepat</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3 style="color:var(--red)">CapCut</h3>
+          <p>Editor video gratis (HP &amp; desktop).</p>
+          <ul><li>Auto-caption sekali klik untuk semua video materi</li><li>Template teks besar yang mudah dibaca</li></ul>
+          <p><strong>Cocok untuk:</strong> tuna rungu &amp; semua siswa.</p>
+          <p style="color:var(--green);font-weight:700">Gratis</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--blue)">Wordwall</h3>
+          <p>Satu materi jadi belasan game instan.</p>
+          <ul><li>Kuis, maze chase, pasangan kartu, roda acak</li><li>Bisa dimainkan di HP tanpa instal aplikasi</li></ul>
+          <p><strong>Cocok untuk:</strong> ADHD &amp; kesulitan belajar.</p>
+          <p style="color:var(--green);font-weight:700">Gratis (kuota terbatas)</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#B07D00">Canva</h3>
+          <p>Desain infografis &amp; poster materi.</p>
+          <ul><li>Accessibility checker bawaan</li><li>Kolom alt text di setiap gambar</li></ul>
+          <p><strong>Cocok untuk:</strong> low vision &amp; semua siswa.</p>
+          <p style="color:var(--green);font-weight:700">Gratis (kuota terbatas)</p>
+        </div>
       </div>
-      <div class="q" data-answer="0">
-        <p>2. Video pembelajaran tanpa subtitle melanggar prinsip…</p>
-        <label class="opt"><input type="radio" name="q2" value="0"><span>Dapat dipersepsi</span></label>
-        <label class="opt"><input type="radio" name="q2" value="1"><span>Dapat dioperasikan</span></label>
-        <label class="opt"><input type="radio" name="q2" value="2"><span>Kokoh</span></label>
-        <p class="fb" aria-live="polite"></p>
+    </section>
+
+    <!-- ============ HAL 21 : PETA PLATFORM ============ -->
+    <section class="page" aria-labelledby="t21">
+      <span class="kicker blue">PANDUAN CEPAT</span>
+      <h2 id="t21" tabindex="-1">Pilih platform dari kebutuhan</h2>
+      <p class="lead">Tidak perlu menguasai semuanya, mulai dari SATU kebutuhan siswa Anda:</p>
+      <ol class="steps">
+        <li>Butuh caption untuk video materi → <strong>CapCut</strong></li>
+        <li>Butuh audio pendamping teks bacaan → <strong>Book Creator</strong></li>
+        <li>Butuh latihan berulang yang menyenangkan → <strong>Wordwall</strong></li>
+        <li>Butuh kuis &amp; video interaktif offline → <strong>H5P via Lumi</strong></li>
+        <li>Butuh bahan visual yang cepat jadi → <strong>Canva</strong></li>
+      </ol>
+      <div class="quote">Tips praktik: pilih SATU platform yang paling relevan dengan kebutuhan muridmu.</div>
+    </section>
+
+    <!-- ============ HAL 22 : CONTOH KONKRET 1/2 ============ -->
+    <section class="page" aria-labelledby="t22">
+      <span class="kicker yellow">CONTOH KONKRET</span>
+      <h2 id="t22" tabindex="-1">Contoh Nyata per Ketunaan</h2>
+      <p class="lead">Bukan teori. Ini yang bisa langsung dipakai di kelas.</p>
+      <div class="grid3">
+        <div class="card">
+          <img class="illus" src="img/contoh-tunanetra.png" alt="Ilustrasi anak memakai headphone mendengarkan e-book bersuara">
+          <h3 style="color:var(--red)">TUNANETRA / LOW VISION</h3>
+          <p>E-book bersuara: tiap halaman ada tombol play suara guru.</p>
+          <p><strong>Cara bikin:</strong> rekam suara di HP, tempel ke Book Creator.</p>
+        </div>
+        <div class="card">
+          <img class="illus" src="img/contoh-tunarungu.png" alt="Ilustrasi video pembelajaran dengan juru bahasa isyarat dan caption">
+          <h3 style="color:var(--blue)">TUNARUNGU</h3>
+          <p>Video 2 menit: juru isyarat Bisindo di pojok + auto-caption.</p>
+          <p><strong>Cara bikin:</strong> rekam materi, CapCut auto-caption sekali klik.</p>
+        </div>
+        <div class="card">
+          <img class="illus" src="img/contoh-tunadaksa.png" alt="Ilustrasi jari menekan tombol raksasa di layar ponsel">
+          <h3 style="color:#B07D00">TUNADAKSA</h3>
+          <p>Kuis tombol raksasa: satu ketuk, tanpa presisi jari.</p>
+          <p><strong>Cara bikin:</strong> pilih template tombol besar, tes navigasi keyboard.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- ============ HAL 23 : CONTOH KONKRET 2/2 ============ -->
+    <section class="page" aria-labelledby="t23">
+      <span class="kicker yellow">CONTOH KONKRET</span>
+      <h2 id="t23" tabindex="-1">Contoh Nyata per Ketunaan</h2>
+      <p class="lead">Lanjutan: dari kebutuhan khusus sampai hambatan ganda.</p>
+      <div class="grid3">
+        <div class="card">
+          <img class="illus" src="img/contoh-tunagrahita.png" alt="Ilustrasi kartu langkah bergambar untuk cuci tangan">
+          <h3 style="color:var(--red)">TUNAGRAHITA</h3>
+          <p>Kartu langkah bergambar: 1 langkah = 1 kartu (cuci tangan 6 kartu).</p>
+          <p><strong>Cara bikin:</strong> foto tiap langkah, susun di Canva.</p>
+        </div>
+        <div class="card">
+          <img class="illus" src="img/contoh-autis.png" alt="Ilustrasi jadwal visual harian dan game maze">
+          <h3 style="color:var(--blue)">AUTIS / ADHD / DISLEKSIA</h3>
+          <p>Jadwal visual harian + game maze 2 menit; teks dibacakan audio.</p>
+          <p><strong>Cara bikin:</strong> Canva untuk jadwal, maze di Wordwall.</p>
+        </div>
+        <div class="card">
+          <img class="illus" src="img/contoh-ganda.png" alt="Ilustrasi kotak sensori berisi jeruk asli, kartu huruf besar, dan tombol audio">
+          <h3 style="color:#B07D00">HAMBATAN GANDA</h3>
+          <p>Kotak sensori: pegang jeruk asli + kartu huruf besar + tombol audio.</p>
+          <p><strong>Cara bikin:</strong> benda sekitar + rekam suara di HP.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HAL 24 : KUIS ============ -->
+    <section class="page" aria-labelledby="t24">
+      <span class="kicker yellow">KUIS KILAT</span>
+      <h2 id="t24" tabindex="-1">Mana Media yang Paling Inklusif?</h2>
+      <p class="lead">Pilih jawabanmu dalam 10 detik!</p>
       <div class="q" data-answer="1">
-        <p>3. Tombol kecil yang berhimpitan melanggar prinsip…</p>
-        <label class="opt"><input type="radio" name="q3" value="0"><span>Dapat dipahami</span></label>
-        <label class="opt"><input type="radio" name="q3" value="1"><span>Dapat dioperasikan</span></label>
-        <label class="opt"><input type="radio" name="q3" value="2"><span>Dapat dipersepsi</span></label>
+        <p>Mana media yang paling inklusif?</p>
+        <label class="opt"><input type="radio" name="q1" value="0"><span><strong>A.</strong> Video 4K 10 menit, tanpa subtitle.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="1"><span><strong>B.</strong> Video 3 menit + caption + transkrip + tombol pause.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="2"><span><strong>C.</strong> Infografis artistik, teks kecil tipis.</span></label>
         <p class="fb" aria-live="polite"></p>
       </div>
       <button class="btn blue" id="checkQuiz">Periksa jawaban</button>
@@ -219,7 +442,40 @@
       <p id="score" aria-live="polite"></p>
     </section>
 
-    
+    <!-- ============ HAL 25 : JAWABAN ============ -->
+    <section class="page" aria-labelledby="t25">
+      <span class="kicker yellow">JAWABAN</span>
+      <h2 id="t25" tabindex="-1">Jawabannya: B</h2>
+      <p class="lead">Bukan yang paling canggih, tapi yang paling bisa diakses semua orang.</p>
+      <div class="card">
+        <h3 style="color:var(--blue)">Kenapa B menang?</h3>
+        <p>Caption membantu tunarungu. Transkrip membantu yang koneksinya lemot. Tombol pause memberi kontrol ke anak yang butuh waktu lebih lama. Dan 3 menit lebih ramah fokus daripada 10 menit.</p>
+        <p style="color:var(--red);font-weight:700">Ingat: aksesibilitas bukan fitur tambahan. Ini fondasinya.</p>
+      </div>
+    </section>
+
+    <!-- ============ HAL 26 : PENUTUP ============ -->
+    <section class="page" aria-labelledby="t26">
+      <span class="kicker">PENUTUP</span>
+      <h2 id="t26" tabindex="-1">Media Terbaik Bukan yang Tercanggih</h2>
+      <p class="lead">Tapi yang bisa diakses semua anak.</p>
+      <div class="card">
+        <h3>Tiga hal yang dibawa pulang:</h3>
+        <ol class="steps">
+          <li>Kenali hambatan murid sebelum pilih media.</li>
+          <li>Satu media bisa multisensori: visual + audio + sentuh.</li>
+          <li>Mulai dari HP dan aplikasi gratis. Jangan tunggu sempurna.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ HAL 27 : QR ============ -->
+    <section class="page" aria-labelledby="t27">
+      <h2 id="t27" tabindex="-1" class="center" style="font-size:2rem">Media Pembelajaran Digital</h2>
+      <p class="lead center">Muhammad Anas Yusuf</p>
+      <img class="qr" src="img/qr-web.png" alt="QR code menuju situs anasy.is-a.dev">
+      <p class="center">Pindai untuk membuka web saya: <strong>anasy.is-a.dev</strong></p>
+    </section>
 
   </div>
 </main>
@@ -230,7 +486,7 @@
   <span id="pageLabel" aria-live="polite"></span>
   <button class="btn primary" id="nextBtn">Lanjut →</button>
 </footer>
-<p class="credit">E-book interaktif • dibuat berdasarkan materi presentasi bootcamp • bebas dibagikan untuk pembelajaran</p>
+<p class="credit">Materi bootcamp • Inclusive EdTech Design Bootcamp, Universitas Negeri Malang 2026 • bebas dibagikan untuk pembelajaran</p>
 
 <p class="sr" id="live" aria-live="polite"></p>
 
