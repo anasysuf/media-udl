@@ -1,6 +1,6 @@
 # Media UDL — E-book Interaktif
 
-**Panduan Kilat: Desain Media Pembelajaran Inklusif** — e-book interaktif 10 halaman
+**Panduan Kilat: Desain Media Pembelajaran Inklusif** — e-book interaktif 9 halaman
 berbasis prinsip UDL (Universal Design for Learning), disarikan dari materi
 *Inclusive EdTech Design Bootcamp for Special Educators*, Universitas Negeri Malang 2026.
 
@@ -19,7 +19,6 @@ https://anasysuf.github.io/media-udl/
 7. Understandable (mudah dipahami)
 8. Robust (tangguh)
 9. Kuis interaktif (3 pertanyaan)
-10. Checklist 10 detik + penutup
 
 ## Fitur aksesibilitas
 

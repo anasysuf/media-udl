@@ -71,10 +71,6 @@
   .q .fb{font-weight:700;margin:.4rem 0 0}
   .q .fb.ok{color:var(--green)} .q .fb.no{color:var(--red)}
   #score{font-size:1.15rem;font-weight:800;margin-top:1rem}
-  /* checklist */
-  .check{display:flex;gap:.7rem;align-items:flex-start;border:2px solid var(--ink);background:var(--bg);padding:.55rem .8rem;margin:.4rem 0;cursor:pointer}
-  .check input{transform:scale(1.35);margin-top:.3rem}
-  .check.done{background:var(--yellow)}
   /* footer nav */
   footer.nav{background:var(--card);border-top:3px solid var(--ink);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
   .dots{display:flex;gap:.4rem;flex-wrap:wrap}
@@ -226,25 +222,7 @@
       <p id="score" aria-live="polite"></p>
     </section>
 
-    <!-- ============ HAL 10 : CHECKLIST + PENUTUP ============ -->
-    <section class="page" data-audio="audio/page-10.mp3" aria-labelledby="t10">
-      <span class="kicker">CHECKLIST 10 DETIK</span>
-      <h2 id="t10" tabindex="-1">Sebelum dipakai siswa, cek dulu</h2>
-      <div id="checklist">
-        <label class="check"><input type="checkbox"><span>Kontras teks cukup?</span></label>
-        <label class="check"><input type="checkbox"><span>Ada alternatif teks / audio untuk visual penting?</span></label>
-        <label class="check"><input type="checkbox"><span>Video ber-caption?</span></label>
-        <label class="check"><input type="checkbox"><span>Bisa dipakai tanpa mouse?</span></label>
-        <label class="check"><input type="checkbox"><span>Tanpa batas waktu kaku?</span></label>
-        <label class="check"><input type="checkbox"><span>Instruksi satu langkah per langkah?</span></label>
-        <label class="check"><input type="checkbox"><span>Bahasa sederhana &amp; konsisten?</span></label>
-        <label class="check"><input type="checkbox"><span>Ada contoh sebelum tugas?</span></label>
-        <label class="check"><input type="checkbox"><span>Umpan balik menjelaskan, bukan sekadar benar/salah?</span></label>
-        <label class="check"><input type="checkbox"><span>Ringan dibuka di HP lama / internet lambat?</span></label>
-      </div>
-      <div class="quote">Satu media yang diuji ke 3 siswa &gt; sepuluh media yang tak pernah dicoba.</div>
-      <p class="credit" style="text-align:left">Materi: Muhammad Anas Yusuf • Inclusive EdTech Design Bootcamp, UM 2026</p>
-    </section>
+    
 
   </div>
 </main>
@@ -371,14 +349,7 @@
     checked = false;
   });
 
-  /* ---------- checklist ---------- */
-  document.querySelectorAll('#checklist .check input').forEach(function(cb){
-    cb.addEventListener('change', function(){
-      cb.closest('.check').classList.toggle('done', cb.checked);
-    });
-  });
-
-  show(0);
+    show(0);
 })();
 </script>
 <script src="vendor/akseskita.min.js" defer></script>
