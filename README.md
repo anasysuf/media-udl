@@ -25,15 +25,14 @@ https://anasysuf.github.io/media-udl/
 - Toolbar aksesibilitas **AksesKita** (karya sendiri, open source): profil 1-klik,
   6 tingkat ukuran teks, 7 skema kontras, alat bantu visual, screen reader & TTS —
   tombol melayang ♿ atau tekan Alt+A. Divendor lokal di `vendor/` agar tetap
-  jalan saat internet lambat.
-- Narasi audio Bahasa Indonesia tiap halaman (tombol 🔊 di header)
+  jalan saat internet lambat. Untuk mendengarkan halaman, pakai fitur
+  TTS/pembaca layar di dalam panel AksesKita.
 - Navigasi keyboard (panah kiri/kanan, Home, End), skip link, live regions
 - Responsif untuk HP dan laptop
 
 ## Struktur
 
 - `index.html` — seluruh e-book dalam satu file
-- `audio/` — narasi tiap halaman (MP3, Bahasa Indonesia)
 - `vendor/akseskita.min.js` — widget aksesibilitas AksesKita (disalin lokal,
   https://github.com/anasysuf/akseskita)
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="E-book interaktif: Panduan Kilat Desain Media Pembelajaran Inklusif untuk guru pendidikan khusus. Dilengkapi narasi audio dan fitur aksesibilitas.">
+<meta name="description" content="E-book interaktif: Panduan Kilat Desain Media Pembelajaran Inklusif untuk guru pendidikan khusus. Dilengkapi toolbar aksesibilitas AksesKita.">
 <title>Panduan Kilat: Desain Media Pembelajaran Inklusif</title>
 <style>
   :root{
@@ -86,22 +86,19 @@
 <a class="skip" href="#book">Lewati ke isi e-book</a>
 
 <header class="top">
-  <div class="brand">Panduan Kilat: Desain Media Inklusif<small>E-book interaktif • narasi audio • aksesibel</small></div>
-  <div class="toolbar" role="toolbar" aria-label="Toolbar e-book">
-    <button class="btn primary" id="audioBtn" aria-pressed="false">🔊 Dengarkan halaman ini</button>
-  </div>
+  <div class="brand">Panduan Kilat: Desain Media Inklusif<small>E-book interaktif • aksesibel</small></div>
 </header>
 
 <main id="book">
   <div class="book" role="region" aria-label="E-book">
 
     <!-- ============ HAL 1 : COVER ============ -->
-    <section class="page" data-audio="audio/page-01.mp3" aria-labelledby="t1">
+    <section class="page" aria-labelledby="t1">
       <span class="kicker">E-BOOK INTERAKTIF</span>
       <h1 id="t1" tabindex="-1">Panduan Kilat:<br>Desain Media Pembelajaran Inklusif</h1>
       <p class="lead">Untuk guru pendidikan khusus. Disarikan dari materi Inclusive EdTech Design Bootcamp, Universitas Negeri Malang 2026.</p>
       <div class="chips">
-        <span class="chip">🔊 Tiap halaman bisa dibacakan</span>
+        <span class="chip">🔊 Dibacakan via AksesKita</span>
         <span class="chip">← → navigasi keyboard</span>
         <span class="chip">♿ Toolbar AksesKita (Alt+A)</span>
       </div>
@@ -110,7 +107,7 @@
     </section>
 
     <!-- ============ HAL 2 : DEFINISI ============ -->
-    <section class="page" data-audio="audio/page-02.mp3" aria-labelledby="t2">
+    <section class="page" aria-labelledby="t2">
       <span class="kicker red">01 • KONSEP DASAR</span>
       <h2 id="t2" tabindex="-1">Apa itu media pembelajaran inklusif?</h2>
       <div class="card">
@@ -124,7 +121,7 @@
     </section>
 
     <!-- ============ HAL 3 : KENAPA PENTING ============ -->
-    <section class="page" data-audio="audio/page-03.mp3" aria-labelledby="t3">
+    <section class="page" aria-labelledby="t3">
       <span class="kicker red">02 • KENAPA PENTING</span>
       <h2 id="t3" tabindex="-1">Kesenjangan yang nyata</h2>
       <ol class="steps">
@@ -137,7 +134,7 @@
     </section>
 
     <!-- ============ HAL 4 : UDL ============ -->
-    <section class="page" data-audio="audio/page-04.mp3" aria-labelledby="t4">
+    <section class="page" aria-labelledby="t4">
       <span class="kicker blue">03 • KERANGKA</span>
       <h2 id="t4" tabindex="-1">UDL: Universal Design for Learning</h2>
       <p class="lead">Tiga prinsip dari CAST, fondasi desain pembelajaran inklusif.</p>
@@ -149,7 +146,7 @@
     </section>
 
     <!-- ============ HAL 5 : PRINSIP 1 ============ -->
-    <section class="page" data-audio="audio/page-05.mp3" aria-labelledby="t5">
+    <section class="page" aria-labelledby="t5">
       <span class="kicker yellow">PRINSIP 1 DARI 4</span>
       <h2 id="t5" tabindex="-1">Dapat dipersepsi</h2>
       <p class="lead">Semua informasi harus bisa ditangkap oleh minimal satu indera, idealnya lebih dari satu.</p>
@@ -160,7 +157,7 @@
     </section>
 
     <!-- ============ HAL 6 : PRINSIP 2 ============ -->
-    <section class="page" data-audio="audio/page-06.mp3" aria-labelledby="t6">
+    <section class="page" aria-labelledby="t6">
       <span class="kicker yellow">PRINSIP 2 DARI 4</span>
       <h2 id="t6" tabindex="-1">Dapat dioperasikan</h2>
       <p class="lead">Semua fungsi bisa dipakai semua siswa, dengan cara mereka masing-masing.</p>
@@ -171,7 +168,7 @@
     </section>
 
     <!-- ============ HAL 7 : PRINSIP 3 ============ -->
-    <section class="page" data-audio="audio/page-07.mp3" aria-labelledby="t7">
+    <section class="page" aria-labelledby="t7">
       <span class="kicker yellow">PRINSIP 3 DARI 4</span>
       <h2 id="t7" tabindex="-1">Dapat dipahami</h2>
       <p class="lead">Siswa langsung mengerti apa yang harus dilakukan, tanpa menebak-nebak.</p>
@@ -182,7 +179,7 @@
     </section>
 
     <!-- ============ HAL 8 : PRINSIP 4 ============ -->
-    <section class="page" data-audio="audio/page-08.mp3" aria-labelledby="t8">
+    <section class="page" aria-labelledby="t8">
       <span class="kicker yellow">PRINSIP 4 DARI 4</span>
       <h2 id="t8" tabindex="-1">Kokoh</h2>
       <p class="lead">Media tetap berfungsi dengan teknologi bantu dan kondisi yang beragam.</p>
@@ -193,7 +190,7 @@
     </section>
 
     <!-- ============ HAL 9 : KUIS ============ -->
-    <section class="page" data-audio="audio/page-09.mp3" aria-labelledby="t9">
+    <section class="page" aria-labelledby="t9">
       <span class="kicker blue">KUIS KILAT</span>
       <h2 id="t9" tabindex="-1">Uji pemahamanmu</h2>
       <div class="q" data-answer="0">
@@ -235,7 +232,6 @@
 </footer>
 <p class="credit">E-book interaktif • dibuat berdasarkan materi presentasi bootcamp • bebas dibagikan untuk pembelajaran</p>
 
-<audio id="narrator" preload="none"></audio>
 <p class="sr" id="live" aria-live="polite"></p>
 
 <script>
@@ -244,8 +240,6 @@
   var dotsBox = document.getElementById('dots');
   var label = document.getElementById('pageLabel');
   var live = document.getElementById('live');
-  var audio = document.getElementById('narrator');
-  var audioBtn = document.getElementById('audioBtn');
   var idx = 0;
 
   pages.forEach(function(p,i){
@@ -256,14 +250,8 @@
   });
   var dots = Array.prototype.slice.call(dotsBox.children);
 
-  function stopAudio(){
-    audio.pause(); audio.removeAttribute('src'); audio.load();
-    audioBtn.setAttribute('aria-pressed','false');
-    audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
-  }
   function show(n){
     idx = Math.max(0, Math.min(pages.length-1, n));
-    stopAudio();
     pages.forEach(function(p,i){
       p.classList.toggle('active', i===idx);
       dots[i].setAttribute('aria-current', i===idx ? 'true':'false');
@@ -287,29 +275,7 @@
     else if(e.key==='End') show(pages.length-1);
   });
 
-  audioBtn.addEventListener('click', function(){
-    if(!audio.getAttribute('src')){
-      var f = pages[idx].getAttribute('data-audio');
-      if(!f) return;
-      audio.src = f;
-    }
-    if(audio.paused){
-      audio.play();
-      audioBtn.setAttribute('aria-pressed','true');
-      audioBtn.innerHTML = '⏸ Jeda narasi';
-    }else{
-      audio.pause();
-      audioBtn.setAttribute('aria-pressed','false');
-      audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
-    }
-  });
-  audio.addEventListener('ended', function(){
-    audioBtn.setAttribute('aria-pressed','false');
-    audioBtn.innerHTML = '🔊 Dengarkan halaman ini';
-  });
-
-
-  /* ---------- quiz ---------- */
+/* ---------- quiz ---------- */
   var checked = false;
   document.getElementById('checkQuiz').addEventListener('click', function(){
     if(checked) return;
